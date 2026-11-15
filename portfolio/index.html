@@ -370,7 +370,9 @@ footer .wrap{display:grid;gap:28px;align-items:center}
       var n=performance.getEntriesByType("navigation")[0], kb=0;
       [n].concat(performance.getEntriesByType("resource")).forEach(function(e){if(e&&e.initiatorType!=="iframe")kb+=(e.transferSize||e.encodedBodySize||0)/1024});
       var s=((n&&n.loadEventStart)||performance.now())/1000;
-      $("#speed").innerHTML="Страница загрузилась за <b>"+s.toFixed(1).replace(".",",")+" с</b>, вес <b>"+Math.round(kb)+" КБ</b>. Так же быстро будет открываться и ваш сайт.";
+      // меньше 0,1 с округлилось бы до «0,0 с» — тогда показываем только вес
+      $("#speed").innerHTML=(s>=0.1?"Страница загрузилась за <b>"+s.toFixed(1).replace(".",",")+" с</b>, вес":"Вес страницы")
+        +" <b>"+Math.round(kb)+" КБ</b>. Так же быстро будет открываться и ваш сайт.";
     },0);
   });
   if(q.has("name")||q.has("niche"))addEventListener("load",function(){$("#try").scrollIntoView()});
