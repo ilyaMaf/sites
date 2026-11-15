@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Бар Капибар — зоокафе · Таганская улица, 13 ст2</title>
+<style>@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/pt-sans-08a4157e6812.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/pt-sans-e9234ad2f8fc.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/pt-sans-9b7b5b446e38.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/pt-sans-684af2806376.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'PT Serif';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/pt-serif-07c8eee7bba2.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}@font-face{font-family:'PT Serif';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/pt-serif-2c18ceec8f93.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{--bg:#fbf3ee;--surface:#ffffff;--ink:#2e1a14;--muted:#85655a;--accent:#c0522d;--accent-ink:#ffffff;
+--tint:color-mix(in srgb,#c0522d 10%,#ffffff);--line:color-mix(in srgb,#2e1a14 11%,transparent);--head:"PT Serif";--body:"PT Sans"}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body),system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:30px}
+a{color:inherit}img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--head),Georgia,serif;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:16px;border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn.soft{background:transparent;color:var(--ink);border-color:var(--line)}
+.credit{position:absolute;right:10px;bottom:8px;font-size:11px;color:#fff;opacity:.75;background:rgba(0,0,0,.35);padding:2px 8px;border-radius:999px}
+/* hero */
+.hero{position:relative;min-height:min(88vh,820px);display:flex;flex-direction:column;color:#fff;background:#222 center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.72) 100%)}
+.hero>*{position:relative}.hero>.wrap{width:100%}.hero>.credit{position:absolute}
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px}
+.brand{font-family:var(--head);font-size:22px;font-weight:700;text-decoration:none}
+.nav{display:flex;gap:28px;font-size:15px}.nav a{text-decoration:none;opacity:.85}.nav a:hover{opacity:1}
+.hero .hero-body{margin-top:auto;padding-bottom:72px}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:13px;opacity:.85}
+.tagline{font-size:clamp(19px,2.2vw,24px);opacity:.95;margin:-6px 0 18px;max-width:30ch}
+.hero h1{font-size:clamp(44px,7vw,92px);margin:14px 0 18px;max-width:14ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;opacity:.92;font-size:16px}
+.meta span{display:inline-flex;gap:8px;align-items:center}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+/* sections */
+section{padding:96px 0 0}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:600;margin-bottom:12px}
+h2{font-size:clamp(32px,4vw,48px)}
+.lead{color:var(--muted);font-size:18px;max-width:60ch;margin-top:14px}
+.feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:36px}
+.feat{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;font-weight:500;font-size:16px}
+.feat i{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--tint);color:var(--accent)}
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.about p{font-size:19px;line-height:1.7;margin:20px 0 0}
+.ph{position:relative;border-radius:22px;overflow:hidden;background:var(--tint)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.about .ph{aspect-ratio:4/5}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px}
+.group h3{font-size:24px;margin-bottom:14px}
+.row{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border-bottom:0}.row .dots{flex:1}.row b{font-weight:600;white-space:nowrap}
+.note{margin-top:18px;font-size:14px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:260px 260px;gap:16px;margin-top:40px}
+.gallery .ph:first-child{grid-row:span 2}
+.reviews{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:44px 48px}
+.score{display:flex;align-items:center;gap:26px}
+.score .num{font-family:var(--head);font-size:88px;line-height:1;font-weight:700}
+.stars{display:flex;gap:4px;color:var(--accent)}.stars svg{fill:currentColor}
+.visit{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:40px}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--line);min-height:380px;background:var(--tint)}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px}
+.card h3{font-size:22px;margin:0 0 10px;display:flex;gap:10px;align-items:center}
+table{width:100%;border-collapse:collapse;font-size:16px}td{padding:9px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right}tr:last-child td{border-bottom:0}tr.today td{color:var(--accent);font-weight:600}
+.contacts a{display:flex;gap:10px;align-items:center;text-decoration:none;padding:8px 0;font-weight:500}
+.contacts a:hover{color:var(--accent)}
+footer{margin-top:96px;border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.demo{position:fixed;left:0;right:0;bottom:0;z-index:30;height:26px;background:rgba(17,17,17,.92);color:#ddd;font:12px/26px system-ui,sans-serif;text-align:center;padding:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo b{color:#fff;font-weight:600}.demo .ds{display:none}
+.sticky{display:none}
+@media (max-width:860px){
+ body{font-size:16px}.nav{display:none}.hero{min-height:min(82vh,680px)}.hero .hero-body{padding-bottom:52px}
+ section{padding-top:68px}.about{grid-template-columns:1fr;gap:28px}.about .ph{aspect-ratio:4/3}
+ .menu{grid-template-columns:1fr}.visit{grid-template-columns:1fr}
+ .gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 160px}.gallery .ph:first-child{grid-column:span 2;grid-row:auto}
+ .reviews{padding:30px 24px}.score .num{font-size:64px}
+ /* липкие кнопки над плашкой демо (26px) + отступ снизу, чтобы они не закрывали подвал */
+ /* --nl — высота плашки «Powered by Netlify» (её вставляет Netlify, на Free её не отключить); без Netlify — 0 */
+ .sticky{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:calc(var(--nl,0px) + 36px);z-index:25}
+ .sticky .btn{flex:1;justify-content:center;padding:13px 16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+ body{padding-bottom:26px}footer{padding-bottom:calc(var(--nl,0px) + 36px + 52px + 24px)}
+ .demo{bottom:var(--nl,0px)}
+ .demo{font-size:11px}.demo .dl{display:none}.demo .ds{display:inline}.hero .actions,.top .btn{display:none}
+}
+@media (max-width:480px){.wrap{padding:0 16px}.gallery{grid-template-rows:200px 140px}}
+</style>
+</head>
+<body>
+<header class="hero" style="background-image:url('assets/photos/ov_capy-0-1600.jpg')">
+  <div class="wrap top"><a class="brand" href="#">Бар Капибар</a>
+    <nav class="nav"><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#reviews">Отзывы</a><a href="#visit">Контакты</a></nav>
+    <a class="btn line" href="https://t.me/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="M10 13l5-5"/></svg> Написать в Telegram</a></div>
+  <div class="wrap hero-body">
+    <div class="kicker">зоокафе</div>
+    <h1>Бар Капибар</h1>
+    <div class="tagline">Зоокафе на Таганской</div>
+    <div class="meta"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Таганская улица, 13 ст2</span><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg> 4,9 в 2ГИС</span></div>
+    <div class="actions"><a class="btn" href="https://t.me/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="M10 13l5-5"/></svg> Написать в Telegram</a><a class="btn line" href="#menu">Меню</a></div>
+  </div>
+  <span class="credit">фото для примера</span>
+</header>
+
+<section id="features"><div class="wrap"><div class="eyebrow">Особенности</div><h2>Что вас ждёт</h2><div class="feats"><div class="feat"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg></i>Оплата картой, по QR, наличными</div><div class="feat"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></i>Бесплатный Wi-Fi</div><div class="feat"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14a4 4 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></svg></i>Удобно с детьми</div><div class="feat"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M8 9h8M12 9v5l4 6M12 14l-4 6"/></svg></i>Доступный вход</div><div class="feat"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/></svg></i>Настольные игры</div></div></div></section>
+
+<section id="about"><div class="wrap about">
+  <div><div class="eyebrow">О нас</div><h2>Бар Капибар</h2><p>У нас уютное зоокафе на Таганской улице, где приятно провести время в спокойной атмосфере Таганского района. Заходите по пути, посидите с друзьями и познакомьтесь с нашими милыми обитателями.</p></div>
+  <div class="ph"><img loading="lazy" src="assets/photos/ov_capy-6-800.jpg" alt=""><span class="credit">фото для примера</span></div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+  <div class="eyebrow">Меню</div><h2>Что попробовать</h2>
+  <div class="menu"><div class="group"><h3>Кофе</h3><div class="row"><span>Капучино</span><span class="dots"></span><b>260 ₽</b></div><div class="row"><span>Флэт уайт</span><span class="dots"></span><b>290 ₽</b></div><div class="row"><span>Раф</span><span class="dots"></span><b>310 ₽</b></div></div><div class="group"><h3>Десерты и выпечка</h3><div class="row"><span>Круассан</span><span class="dots"></span><b>210 ₽</b></div><div class="row"><span>Чизкейк</span><span class="dots"></span><b>340 ₽</b></div><div class="row"><span>Морковный торт</span><span class="dots"></span><b>350 ₽</b></div></div><div class="group"><h3>Завтраки</h3><div class="row"><span>Сырники со сметаной</span><span class="dots"></span><b>410 ₽</b></div><div class="row"><span>Омлет с тостом</span><span class="dots"></span><b>380 ₽</b></div><div class="row"><span>Овсяная каша с ягодами</span><span class="dots"></span><b>310 ₽</b></div></div></div>
+  <div class="note">Пример меню — заменим на ваше.</div>
+</div></section>
+
+<section><div class="wrap"><div class="gallery">
+  <div class="ph"><img loading="lazy" src="assets/photos/ov_capy-7-800.jpg" alt=""><span class="credit">фото для примера</span></div><div class="ph"><img loading="lazy" src="assets/photos/ov_zoo-0-800.jpg" alt=""><span class="credit">фото для примера</span></div><div class="ph"><img loading="lazy" src="assets/photos/ov_zoo-4-800.jpg" alt=""><span class="credit">фото для примера</span></div>
+</div></div></section>
+
+<section id="reviews"><div class="wrap"><div class="reviews">
+  <div class="score"><div class="num">4,9</div><div><div class="stars"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></div>
+  <div style="margin-top:8px;font-size:18px">341 отзыв в 2ГИС</div></div></div>
+  <a class="btn" href="https://2gis.ru/moscow/firm/70000001105346366" target="_blank" rel="noopener">Читать отзывы в 2ГИС</a>
+</div></div></section>
+
+<section id="visit"><div class="wrap">
+  <div class="eyebrow">Как нас найти</div><h2>Приходите</h2>
+  <div class="visit">
+    <div class="map"><iframe loading="lazy" title="Карта" src="https://www.openstreetmap.org/export/embed.html?bbox=37.65364,55.737382,37.66764,55.744382&amp;layer=mapnik&amp;marker=55.740882,37.66064"></iframe></div>
+    <div style="display:grid;gap:22px">
+      <div class="card"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Адрес</h3><div>Таганская улица, 13 ст2</div>
+        <div style="margin-top:16px"><a class="btn" href="https://2gis.ru/moscow/firm/70000001105346366" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h8"/></svg> Построить маршрут</a></div></div>
+      <div class="card"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Часы работы</h3><table><tr data-days="1,2,3,4,5"><td>Пн–Пт</td><td>11:00–20:00</td></tr><tr data-days="6,0"><td>Сб–Вс</td><td>10:00–22:00</td></tr></table></div>
+      <div class="card contacts"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg> Связаться</h3><a href="tel:+74952121663"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> +7 495 212-16-63</a><a href="https://t.me/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="M10 13l5-5"/></svg> Telegram</a><a href="https://vk.ru/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg> ВКонтакте</a><a href="http://max.ru/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg> MAX</a></div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>Бар Капибар · зоокафе</span><span>Таганская улица, 13 ст2</span></div></footer>
+
+<div class="sticky"><a class="btn" href="https://t.me/cpbbar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="M10 13l5-5"/></svg> Telegram</a><a class="btn" href="tel:+74952121663"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Позвонить</a></div>
+<div class="demo"><span class="dl">Демо-версия, подготовлено для</span><span class="ds">Демо для</span> <b>«Бар Капибар»</b>. Не официальный сайт.</div>
+<script>(function(){
+/* плашка Netlify появляется асинхронно: меряем её и поднимаем полосу демо и кнопки над ней */
+function nl(){var f=document.querySelector('#nl-badge-frame,.nl-badge-frame,iframe[title="Powered by Netlify"]');if(!f)return false;
+function set(){var h=Math.ceil(f.getBoundingClientRect().height);if(h>0&&h<120)document.documentElement.style.setProperty('--nl',h+'px')}
+set();if(window.ResizeObserver)new ResizeObserver(set).observe(f);return true}  /* перемер после анимации появления */
+if(!nl()){var mo=new MutationObserver(function(){if(nl())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});
+setTimeout(function(){mo.disconnect()},15000)}
+})()</script>
+<script>(function(){var d=new Date().getDay();document.querySelectorAll('tr[data-days]').forEach(function(r){
+if(r.dataset.days.split(',').indexOf(String(d))>-1)r.className='today'})})()</script>
+</body>
+</html>
