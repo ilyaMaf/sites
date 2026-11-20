@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Илья · простые сайты для небольших компаний</title>
-<meta name="description" content="Пять примеров сайтов для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
+<title>ilya.web · сайты для малого бизнеса</title>
+<meta name="description" content="Сайты для малого бизнеса: от визитки до конфигураторов и калькуляторов. Пять примеров для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="fonts/q5uCsoe9Lv5t7Meb31EcExd8hLxR.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -32,9 +32,11 @@ a{color:inherit}
 
 /* шапка */
 .top .wrap{display:flex;align-items:center;gap:20px;height:68px}
-.me{font:700 20px/1 var(--f);text-decoration:none;display:flex;align-items:center;gap:10px}
-.me i{width:30px;height:30px;border-radius:9px;background:var(--acc);display:grid;place-items:center;color:var(--acc-ink);
-  font:700 16px/1 var(--f);font-style:normal}
+.me{font:800 24px/1 var(--f);letter-spacing:-.045em;text-decoration:none;display:flex;align-items:baseline;
+  --w1:#5b2bff;--w2:#b45cf2}
+.me i{width:.3em;height:.3em;border-radius:50%;margin:0 .05em 0 .07em;background:var(--w1);flex:none}
+.me b{font-weight:inherit;background:linear-gradient(90deg,var(--w1),var(--w2));-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(prefers-color-scheme:dark){.me{--w1:#7a4dff;--w2:#e29bff}}
 .top nav{display:none;gap:26px;margin-left:auto;font-size:15px;color:var(--mute)}
 .top nav a{text-decoration:none}.top nav a:hover{color:var(--ink)}
 .top .btn{height:42px;padding:0 18px;font-size:15px;margin-left:auto}
@@ -42,8 +44,8 @@ a{color:inherit}
 
 /* первый экран: текст + веер из трёх примеров */
 .hero{display:grid;gap:40px;padding:32px 0 72px;align-items:center}
-.hero h1{font:700 clamp(38px,6.2vw,68px)/1.04 var(--f);letter-spacing:-.035em;max-width:13ch}
-.hero p{margin-top:18px;color:var(--mute);font-size:19px;max-width:36ch}
+.hero h1{font:700 clamp(36px,5.6vw,62px)/1.05 var(--f);letter-spacing:-.035em;max-width:15ch}
+.hero p{margin-top:18px;color:var(--mute);font-size:19px;max-width:40ch}
 .hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .fan{position:relative;height:340px;max-width:520px;width:100%;margin-inline:auto}
 .fan a{position:absolute;top:0;left:50%;width:150px;border-radius:22px;overflow:hidden;box-shadow:var(--sh);
@@ -183,7 +185,7 @@ footer .wrap{display:grid;gap:28px;align-items:center}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="me" href="#"><i aria-hidden="true">И</i>Илья</a>
+  <a class="me" href="#" aria-label="ilya.web, наверх">ilya<i aria-hidden="true"></i><b>web</b></a>
   <nav aria-label="Разделы"><a href="#work">Примеры</a><a href="#try">Примерка</a><a href="#days">Как работаю</a></nav>
   <a class="btn needs-contact" href="https://t.me/Jodylll" target="_blank" rel="noopener">Написать</a>
 </div></header>
@@ -191,8 +193,8 @@ footer .wrap{display:grid;gap:28px;align-items:center}
 <main>
 <section class="wrap hero" style="padding-top:32px">
   <div>
-    <h1>Делаю простые сайты для небольших компаний</h1>
-    <p>Одна страница под телефон: услуги, цены, адрес и кнопка записи. Готово за три дня.</p>
+    <h1>Сайты для малого бизнеса — от&nbsp;визитки до&nbsp;интерактивных</h1>
+    <p>Сайт под телефон с заявками на почту или в Telegram — от 3 дней. Конфигураторы и калькуляторы тоже делаю.</p>
     <div class="btns">
       <a class="btn needs-contact" href="https://t.me/Jodylll" target="_blank" rel="noopener">Написать</a>
       <a class="btn line" href="#try">Примерить на себя</a>
@@ -209,6 +211,18 @@ footer .wrap{display:grid;gap:28px;align-items:center}
   <h2 class="rv">Пять примеров для выдуманных заведений</h2>
   <p class="sub rv">У каждого своя сетка, шрифты и характер. Названия придуманы, совпадения случайны.</p>
   <div class="works">
+    <article class="w wide rv">
+      <a class="shot" href="mera/"><video src="mera/preview.mp4?v=1" poster="mera/preview.jpg?v=1" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: в конфигураторе меняются форма кухни, фасады и столешница, цена пересчитывается"></video></a>
+      <div class="b"><h3>Кухни на заказ «Мера»</h3>
+        <p>Конфигуратор: форма, фасады, столешница и ручки. Картинка плавно меняется, цена «от» докатывается до новой суммы, расчёт можно сохранить с размерами кухни. На телефоне опции листаются чипами.</p>
+        <div class="acts"><a class="btn" href="mera/">Открыть сайт</a></div></div>
+    </article>
+    <article class="w wide rv">
+      <a class="shot" href="losk/"><video src="losk/preview.mp4?v=2" poster="losk/preview.jpg?v=2" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: грязь на первом экране сайта стирается курсором"></video></a>
+      <div class="b"><h3>Клининг «Лоск»</h3>
+        <p>Интерактивный первый экран: грязь стирается мышью или пальцем, под ней чистая комната. Дальше калькулятор цены, слайдер «до и после» и заявка.</p>
+        <div class="acts"><a class="btn" href="losk/">Открыть сайт</a></div></div>
+    </article>
     <article class="w main rv">
       <a class="shot" href="../portfolio-auto/"><img src="shots/auto-d.jpg" loading="lazy" alt="Первый экран сайта автосервиса" width="800" height="500"></a>
       <div class="b"><h3>Автосервис «Ключ на 17»</h3>
@@ -226,18 +240,6 @@ footer .wrap{display:grid;gap:28px;align-items:center}
       <div class="b"><h3>Салон «Лиловый час»</h3>
         <p>Светлый минимализм: галерея работ, услуги карточками, отзывы.</p>
         <div class="acts"><a class="btn" href="../portfolio-salon/">Открыть сайт</a><button class="btn line" type="button" data-show="salon">В телефоне</button></div></div>
-    </article>
-    <article class="w wide rv">
-      <a class="shot" href="losk/"><video src="losk/preview.mp4?v=2" poster="losk/preview.jpg?v=2" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: грязь на первом экране сайта стирается курсором"></video></a>
-      <div class="b"><h3>Клининг «Лоск»</h3>
-        <p>Интерактивный первый экран: грязь стирается мышью или пальцем, под ней чистая комната. Дальше калькулятор цены, слайдер «до и после» и заявка.</p>
-        <div class="acts"><a class="btn" href="losk/">Открыть сайт</a></div></div>
-    </article>
-    <article class="w wide rv">
-      <a class="shot" href="mera/"><video src="mera/preview.mp4?v=1" poster="mera/preview.jpg?v=1" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: в конфигураторе меняются форма кухни, фасады и столешница, цена пересчитывается"></video></a>
-      <div class="b"><h3>Кухни на заказ «Мера»</h3>
-        <p>Конфигуратор: форма, фасады, столешница и ручки. Картинка плавно меняется, цена «от» докатывается до новой суммы, расчёт можно сохранить с размерами кухни. На телефоне опции листаются чипами.</p>
-        <div class="acts"><a class="btn" href="mera/">Открыть сайт</a></div></div>
     </article>
   </div>
 </section>
