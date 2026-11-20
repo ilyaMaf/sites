@@ -127,15 +127,6 @@ footer .wrap{display:grid;gap:18px}
 footer b{color:var(--ink);font:800 15px/1 var(--disp);text-transform:uppercase}
 @media(min-width:900px){footer .wrap{grid-template-columns:2fr 1fr 1fr 1fr}}
 
-/* плашка «пример» */
-.example{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:10px;
-  max-width:calc(100% - 24px);padding:8px 8px 8px 14px;background:#f1eee6;color:#131312;font:400 13px/1.3 var(--text);
-  box-shadow:0 8px 30px rgba(0,0,0,.35)}
-.example{opacity:0;transform:translate(-50%,150%);transition:opacity .5s,transform .5s cubic-bezier(.16,1,.3,1)}
-.example.show{opacity:1;transform:translateX(-50%)}
-.example a{font-weight:700;white-space:nowrap}
-.example button{border:0;background:none;font:700 18px/1 var(--text);color:#5b5850;cursor:pointer;padding:4px 6px}
-.example[hidden]{display:none}
 
 /* появление при прокрутке */
 .js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
@@ -144,10 +135,10 @@ footer b{color:var(--ink);font:800 15px/1 var(--disp);text-transform:uppercase}
 @keyframes up{from{opacity:0;transform:translateY(40%)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}
   .js .hero h1 .k{animation:none}.shots img{transition:none}}
+.demo-note{grid-column:1/-1;margin:8px 0 0;font-size:14px}.demo-note a{font-weight:700;color:inherit;text-decoration:underline}
 </style>
 </head>
 <body>
-<div id="after-hero" aria-hidden="true" style="position:absolute;top:130vh;left:0;width:1px;height:1px"></div>
 <header class="top"><div class="wrap">
   <a class="logo" href="#"><i aria-hidden="true"></i><span data-name>Ключ на 17</span></a>
   <nav aria-label="Разделы"><a href="#prices">Цены</a><a href="#how">Как работаем</a><a href="#book">Запись</a></nav>
@@ -247,13 +238,9 @@ footer b{color:var(--ink);font:800 15px/1 var(--disp);text-transform:uppercase}
   <div>ул. Примерная, 17<br>въезд со двора</div>
   <div class="num">Пн-Сб 9:00-21:00<br>Вс выходной</div>
   <div class="num">+7 (000) 000-17-17</div>
+  <p class="demo-note">Демо-проект для портфолио. <a href="https://t.me/ilya_webdev" class="needs-contact" target="_blank" rel="noopener">Хочу такой сайт</a></p>
 </div></footer>
 
-<aside class="example" role="note">
-  <span>Пример оформления. Заведение выдуманное.</span>
-  <a href="https://t.me/ilya_webdev" class="needs-contact">Хочу такой сайт</a>
-  <button type="button" aria-label="Скрыть">×</button>
-</aside>
 
 <script>
 (function(){
@@ -295,12 +282,6 @@ footer b{color:var(--ink);font:800 15px/1 var(--disp);text-transform:uppercase}
   document.querySelectorAll(".rv").forEach(function(el){io?io.observe(el):el.classList.add("in")});
 
   document.querySelector("form").addEventListener("submit",function(e){e.preventDefault();this.classList.add("sent")});
-  // плашка «пример» появляется после первого экрана, чтобы не закрывать его
-  var ex=document.querySelector(".example"), mark=document.getElementById("after-hero");
-  ex.querySelector("button").onclick=function(){ex.hidden=true};
-  if(window.self!==window.top)ex.hidden=true;
-  if(io)new IntersectionObserver(function(es){if(es[0].isIntersecting)ex.classList.add("show")},{rootMargin:"100000px 0px 0px 0px"}).observe(mark);
-  else ex.classList.add("show");   // внутри макета телефона на главной — без плашки
 })();
 </script>
 </body>
