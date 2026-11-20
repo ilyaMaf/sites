@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мера: кухни на заказ по вашим размерам</title>
+  <meta name="description" content="Мера: кухни на заказ с собственного производства. Соберите кухню в конфигураторе и узнайте цену за минуту. Бесплатный замер, 3D-проект, гарантия 7 лет.">
+  <meta name="theme-color" content="#f3efe8">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top" aria-label="Мера, на главную">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M8 24V8M12 24V13M16 24V17M20 24V13M24 24V8" stroke="var(--logo-tick)" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>мера</span>
+    </a>
+    <nav aria-label="Разделы">
+      <a href="#config">Конфигуратор</a>
+      <a href="#steps">Как работаем</a>
+      <a href="#works">Кухни</a>
+      <a href="#warranty">Гарантия</a>
+      <a href="#reviews">Отзывы</a>
+    </nav>
+    <a class="nav__phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
+    <a class="btn btn--small" href="#save">Замер бесплатно</a>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <h1>Кухня<br> по&nbsp;вашей мерке</h1>
+      <p class="hero__lead">Соберите кухню: форма, фасады, столешница, ручки. Цена считается сразу, точную назовёт дизайнер после замера.</p>
+      <ul class="facts">
+        <li><b>21 день</b> производство</li>
+        <li><b>7 лет</b> гарантия</li>
+        <li><b>0 ₽</b> замер и 3D-проект</li>
+      </ul>
+    </section>
+
+    <section class="config wrap" id="config" aria-label="Конфигуратор кухни">
+      <div class="stage" data-stage role="img" aria-live="polite" aria-label="Угловая кухня"></div>
+
+      <form class="panel" data-config>
+        <fieldset class="opt opt--shape">
+          <legend>Форма <span data-picked="shape"></span></legend>
+          <div class="chips" data-group="shape"></div>
+        </fieldset>
+        <fieldset class="opt">
+          <legend>Фасады <span data-picked="front"></span></legend>
+          <div class="chips" data-group="front"></div>
+        </fieldset>
+        <fieldset class="opt">
+          <legend>Столешница <span data-picked="top"></span></legend>
+          <div class="chips" data-group="top"></div>
+        </fieldset>
+        <fieldset class="opt">
+          <legend>Ручки <span data-picked="handle"></span></legend>
+          <div class="chips" data-group="handle"></div>
+        </fieldset>
+
+        <div class="total">
+          <div>
+            <span class="total__label">Цена комплекта</span>
+            <span class="total__sum">от <span data-price aria-hidden="true">0 ₽</span></span>
+            <span class="sr-only" aria-live="polite" data-price-sr></span>
+            <small>Корпуса, фасады, столешница и монтаж. Без техники.</small>
+          </div>
+          <a class="btn" href="#save" data-save>Сохранить расчёт</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="save wrap" id="save" aria-labelledby="save-h">
+      <h2 id="save-h">Сохранить расчёт</h2>
+      <div class="save__grid">
+        <aside class="summary">
+          <div class="summary__img" data-thumb aria-hidden="true"></div>
+          <dl data-summary></dl>
+          <p class="summary__sum">от <b data-price-copy></b></p>
+        </aside>
+
+        <form class="order" data-order novalidate>
+          <p class="order__lead">Пришлём расчёт с перечнем модулей и запишем на бесплатный замер. Размеры примерные: точные снимет замерщик.</p>
+          <div class="field">
+            <label for="name">Имя</label>
+            <input id="name" name="name" autocomplete="name" required maxlength="60">
+            <small class="field__err" id="name-err"></small>
+          </div>
+          <div class="field">
+            <label for="contact">Телефон или Telegram</label>
+            <input id="contact" name="contact" autocomplete="tel" required maxlength="40" placeholder="+7 900 000-00-00 или @username">
+            <small class="field__err" id="contact-err"></small>
+          </div>
+          <fieldset class="dims">
+            <legend>Размеры кухни, см</legend>
+            <div class="field">
+              <label for="len">Длина стены</label>
+              <input id="len" name="len" type="number" inputmode="numeric" min="150" max="900" step="1" required placeholder="300">
+              <small class="field__err" id="len-err"></small>
+            </div>
+            <div class="field" data-dim="corner">
+              <label for="len2">Вторая стена</label>
+              <input id="len2" name="len2" type="number" inputmode="numeric" min="100" max="700" step="1" placeholder="200">
+              <small class="field__err" id="len2-err"></small>
+            </div>
+            <div class="field" data-dim="island">
+              <label for="island">Длина острова</label>
+              <input id="island" name="island" type="number" inputmode="numeric" min="90" max="400" step="1" placeholder="200">
+              <small class="field__err" id="island-err"></small>
+            </div>
+            <div class="field">
+              <label for="height">Высота потолка</label>
+              <input id="height" name="height" type="number" inputmode="numeric" min="220" max="400" step="1" placeholder="270">
+              <small class="field__err" id="height-err"></small>
+            </div>
+          </fieldset>
+          <button class="btn btn--wide" type="submit">Отправить расчёт</button>
+          <p class="order__note">Демо-сайт: данные никуда не отправляются.</p>
+        </form>
+
+        <div class="sent" data-sent hidden tabindex="-1">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 25 6 6 12-14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Расчёт отправлен</h3>
+          <p data-sent-text></p>
+          <button class="btn btn--ghost" type="button" data-again>Изменить расчёт</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps wrap" id="steps" aria-labelledby="steps-h">
+      <h2 id="steps-h">Как работаем</h2>
+      <ol>
+        <li><span class="steps__n">01</span><h3>Замер</h3><p>Приедем в удобный день, снимем размеры, проверим стены, выводы воды и розетки. Бесплатно.</p></li>
+        <li><span class="steps__n">02</span><h3>Проект</h3><p>Через 3 дня покажем 3D-проект с вашей техникой. Правим, пока не понравится.</p></li>
+        <li><span class="steps__n">03</span><h3>Договор</h3><p>Цена фиксируется в договоре и не меняется. Предоплата 50%.</p></li>
+        <li><span class="steps__n">04</span><h3>Производство</h3><p>21 рабочий день на своём цехе: раскрой, кромка, покраска, сборка.</p></li>
+        <li><span class="steps__n">05</span><h3>Монтаж</h3><p>Ставим за 1–2 дня, подключаем мойку и технику, увозим мусор.</p></li>
+      </ol>
+    </section>
+
+    <section class="works" id="works" aria-labelledby="works-h">
+      <div class="wrap works__head">
+        <h2 id="works-h">Кухни, которые мы собрали</h2>
+        <div class="works__nav">
+          <button class="round" type="button" data-scroll="-1" aria-label="Назад">←</button>
+          <button class="round" type="button" data-scroll="1" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+      <ul class="ribbon" data-ribbon tabindex="0" aria-label="Лента работ, листается вбок">
+        <li class="work"><img src="img/work/1.webp" alt="Угловая кухня: фасады шалфей, столешница дуб, латунные ручки" width="960" height="600" loading="lazy">
+          <h3>Квартира на Садовой</h3><p>Угловая · 9 м² · шалфей и дуб</p><button class="link" type="button" data-copy="corner sage oak brass">Собрать такую же</button></li>
+        <li class="work"><img src="img/work/2.webp" alt="Кухня с островом: фасады индиго, белый кварц, латунь" width="960" height="600" loading="lazy">
+          <h3>Дом в Озёрном</h3><p>С островом · 18 м² · индиго и кварц</p><button class="link" type="button" data-copy="island ink quartz brass">Собрать такую же</button></li>
+        <li class="work"><img src="img/work/3.webp" alt="Прямая белая кухня без ручек, столешница дуб" width="960" height="600" loading="lazy">
+          <h3>Студия на Речной</h3><p>Прямая · 6 м² · белый без ручек</p><button class="link" type="button" data-copy="straight white oak profile">Собрать такую же</button></li>
+        <li class="work"><img src="img/work/4.webp" alt="Угловая графитовая кухня без ручек, микроцемент" width="960" height="600" loading="lazy">
+          <h3>Лофт на Заводской</h3><p>Угловая · 11 м² · графит и цемент</p><button class="link" type="button" data-copy="corner black cement profile">Собрать такую же</button></li>
+        <li class="work"><img src="img/work/5.webp" alt="Кухня с островом в шпоне дуба, тёмный камень, чёрные кнобы" width="960" height="600" loading="lazy">
+          <h3>Таунхаус в Липках</h3><p>С островом · 16 м² · дуб и камень</p><button class="link" type="button" data-copy="island oak stone knob">Собрать такую же</button></li>
+        <li class="work"><img src="img/work/6.webp" alt="Прямая кухня цвета глины, белый кварц, кнобы" width="960" height="600" loading="lazy">
+          <h3>Квартира на Цветном</h3><p>Прямая · 7 м² · глина и кварц</p><button class="link" type="button" data-copy="straight clay quartz knob">Собрать такую же</button></li>
+      </ul>
+    </section>
+
+    <section class="warranty" id="warranty" aria-labelledby="warranty-h">
+      <div class="wrap warranty__grid">
+        <div>
+          <p class="warranty__big" aria-hidden="true">7 лет</p>
+          <h2 id="warranty-h">Гарантия на всё, что сделали сами</h2>
+          <p>Корпуса, фасады и сборка. Если что-то разошлось или отклеилось, приедем и исправим бесплатно.</p>
+        </div>
+        <ul>
+          <li><b>Корпуса из ЛДСП 18 мм</b> класса E0,5, кромка 2 мм на всех видимых торцах.</li>
+          <li><b>Фурнитура с доводчиками</b> на 80 000 циклов открывания, гарантия производителя пожизненная.</li>
+          <li><b>Эмаль в 7 слоёв</b> с грунтом и шлифовкой. Сколы в первый год закрашиваем на месте.</li>
+          <li><b>Сервис через 12 месяцев</b>Регулируем фасады и петли, когда дом осядет.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="reviews wrap" id="reviews" aria-labelledby="reviews-h">
+      <h2 id="reviews-h">Отзывы</h2>
+      <div class="reviews__grid">
+        <figure><blockquote>Кухня 5,8 м² с колонкой и газовой трубой посередине стены. Дизайнер спрятал трубу в короб, а в углу сделал карусель. Ставили полтора дня.</blockquote>
+          <figcaption><b>Марина</b> угловая, шалфей</figcaption></figure>
+        <figure><blockquote>Боялся, что цена вырастет после замера. В конфигураторе было 342 тысячи, в договоре 356 из-за доводчиков на всё. Больше не менялось ни рубля.</blockquote>
+          <figcaption><b>Артём</b> прямая, графит</figcaption></figure>
+        <figure><blockquote>Через год приехали сами, подтянули фасады на острове. Я даже не звонила. Дубовый шпон за год стал только теплее.</blockquote>
+          <figcaption><b>Ольга</b> с островом, дуб</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cta wrap" aria-label="Запись на замер">
+      <h2>Приедем на замер в удобный день</h2>
+      <a class="btn" href="#save">Записаться</a>
+    </section>
+  </main>
+
+  <footer class="foot wrap">
+    <a class="logo" href="#top" aria-label="Мера, наверх">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M8 24V8M12 24V13M16 24V17M20 24V13M24 24V8" stroke="var(--logo-tick)" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>мера</span>
+    </a>
+    <p>Шоурум: ул. Примерная, 12 · ежедневно 10–21<br><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+    <p class="foot__demo">Демо-сайт для портфолио. Студия, адрес и отзывы вымышлены.</p>
+  </footer>
+</body>
+</html>

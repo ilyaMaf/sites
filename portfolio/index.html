@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Илья · простые сайты для небольших компаний</title>
-<meta name="description" content="Четыре примера сайтов для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
+<meta name="description" content="Пять примеров сайтов для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="fonts/q5uCsoe9Lv5t7Meb31EcExd8hLxR.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -207,7 +207,7 @@ footer .wrap{display:grid;gap:28px;align-items:center}
 </section>
 
 <section id="work" class="wrap">
-  <h2 class="rv">Четыре примера для выдуманных заведений</h2>
+  <h2 class="rv">Пять примеров для выдуманных заведений</h2>
   <p class="sub rv">У каждого своя сетка, шрифты и характер. Названия придуманы, совпадения случайны.</p>
   <div class="works">
     <article class="w main rv">
@@ -233,6 +233,12 @@ footer .wrap{display:grid;gap:28px;align-items:center}
       <div class="b"><h3>Клининг «Лоск»</h3>
         <p>Интерактивный первый экран: грязь стирается мышью или пальцем, под ней чистая комната. Дальше калькулятор цены, слайдер «до и после» и заявка.</p>
         <div class="acts"><a class="btn" href="losk/">Открыть сайт</a></div></div>
+    </article>
+    <article class="w wide rv">
+      <a class="shot" href="mera/"><video src="mera/preview.mp4?v=1" poster="mera/preview.jpg?v=1" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: в конфигураторе меняются форма кухни, фасады и столешница, цена пересчитывается"></video></a>
+      <div class="b"><h3>Кухни на заказ «Мера»</h3>
+        <p>Конфигуратор: форма, фасады, столешница и ручки. Картинка плавно меняется, цена «от» докатывается до новой суммы, расчёт можно сохранить с размерами кухни. На телефоне опции листаются чипами.</p>
+        <div class="acts"><a class="btn" href="mera/">Открыть сайт</a></div></div>
     </article>
   </div>
 </section>
@@ -386,7 +392,8 @@ footer .wrap{display:grid;gap:28px;align-items:center}
   if(q.has("name")||q.has("niche"))addEventListener("load",function(){$("#try").scrollIntoView()});
 })();
 </script>
-<script>(function(){var v=document.querySelector(".w.wide video");if(!v||!("IntersectionObserver"in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-new IntersectionObserver(function(e){e[0].isIntersecting?v.play().catch(function(){}):v.pause()},{threshold:.35}).observe(v)})()</script>
+<script>(function(){if(!("IntersectionObserver"in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?e.target.play().catch(function(){}):e.target.pause()})},{threshold:.35});
+document.querySelectorAll(".w.wide video").forEach(function(v){io.observe(v)})})()</script>
 </body>
 </html>
