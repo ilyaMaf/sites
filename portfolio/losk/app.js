@@ -95,27 +95,63 @@ function measure() {
   if (share >= GOAL) clean();
 }
 
+// Mouse and pen: pointer events. Fingers go through the touch handlers below.
 dirt.addEventListener("pointerdown", (e) => {
+  if (e.pointerType === "touch") return;
   const b = dirt.getBoundingClientRect();
   last = null;
   wipe(e.clientX - b.left, e.clientY - b.top);
 });
 dirt.addEventListener("pointermove", (e) => {
+  if (e.pointerType === "touch") return;
   const b = dirt.getBoundingClientRect();
   const mouse = e.pointerType === "mouse";
   if (mouse) {
     brush.style.transform = `translate(${e.clientX - b.left}px, ${e.clientY - b.top}px)`;
     hero.classList.add("is-hovering");
   }
-  // Mouse wipes on hover, finger and pen only while pressed.
+  // Mouse wipes on hover, pen only while pressed.
   if (!mouse && !e.buttons) return;
   for (const p of e.getCoalescedEvents?.() ?? [e]) wipe(p.clientX - b.left, p.clientY - b.top);
 });
 for (const t of ["pointerup", "pointercancel"]) dirt.addEventListener(t, () => (last = null));
 dirt.addEventListener("pointerleave", () => { last = null; hero.classList.remove("is-hovering"); });
+
+// Touch: a sideways swipe or press-and-hold wipes, a vertical swipe scrolls the page.
+// The canvas is touch-action: pan-y, so sideways moves never scroll and stay cancelable.
+const HOLD_MS = 250;
+let mode = null, start = null, hold = 0;
+const local = (t) => { const b = dirt.getBoundingClientRect(); return [t.clientX - b.left, t.clientY - b.top]; };
+dirt.addEventListener("touchstart", (e) => {
+  clearTimeout(hold);
+  last = null;
+  if (e.touches.length > 1) { mode = "scroll"; return; } // pinch zoom stays native
+  start = local(e.touches[0]);
+  mode = "pending";
+  hold = setTimeout(() => { if (mode === "pending") { mode = "wipe"; wipe(...start); } }, HOLD_MS);
+}, { passive: true });
+dirt.addEventListener("touchmove", (e) => {
+  const p = local(e.touches[0]);
+  if (mode === "pending") {
+    const dx = Math.abs(p[0] - start[0]), dy = Math.abs(p[1] - start[1]);
+    if (dx + dy < 6) return; // finger jitter, not a direction yet
+    clearTimeout(hold);
+    mode = dx > dy && e.cancelable ? "wipe" : "scroll";
+    if (mode === "wipe") wipe(...start);
+  }
+  if (mode !== "wipe" || !e.cancelable) return;
+  e.preventDefault();
+  wipe(...p);
+}, { passive: false });
+for (const t of ["touchend", "touchcancel"]) dirt.addEventListener(t, () => { clearTimeout(hold); mode = null; last = null; });
+dirt.addEventListener("contextmenu", (e) => e.preventDefault()); // long-press menu would break a hold-wipe
 hero.querySelector("[data-skip]").addEventListener("click", clean);
 
-img.onload = () => { fit(); new ResizeObserver(fit).observe(hero); };
+img.onload = () => {
+  fit();
+  new ResizeObserver(fit).observe(hero);
+  setTimeout(() => started || hero.classList.add("is-idle"), 2000); // touch hint adds "или листайте вниз"
+};
 img.onerror = clean; // no dirt to wipe, just show the clean hero
 img.src = dirt.dataset.dirt;
 
@@ -214,3 +250,28 @@ order.addEventListener("submit", (e) => {
   done.hidden = false;
   done.focus();
 });
+
+// ---------- Reviews carousel: native scroll-snap + arrows and dots ----------
+const track = document.querySelector("[data-track]");
+const cards = [...track.children];
+const dots = document.querySelector("[data-dots]");
+const [prev, next] = document.querySelectorAll("[data-dir]");
+const behavior = reduceMotion ? "auto" : "smooth";
+const offset = (c) => c.offsetLeft - cards[0].offsetLeft;
+cards.forEach((c, i) => {
+  const d = document.createElement("button");
+  d.type = "button";
+  d.setAttribute("aria-label", `Отзыв ${i + 1}`);
+  d.addEventListener("click", () => track.scrollTo({ left: offset(c), behavior }));
+  dots.append(d);
+});
+for (const b of [prev, next]) b.addEventListener("click", () => track.scrollBy({ left: +b.dataset.dir * offset(cards[1]), behavior }));
+const visible = new Set();
+const seen = new IntersectionObserver((entries) => {
+  for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+  const first = cards.findIndex((c) => visible.has(c));
+  [...dots.children].forEach((d, i) => d.setAttribute("aria-current", i === first));
+  prev.disabled = visible.has(cards[0]);
+  next.disabled = visible.has(cards.at(-1));
+}, { root: track, threshold: 0.9 });
+for (const c of cards) seen.observe(c);
