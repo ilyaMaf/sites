@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru" data-light="off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Слой: детейлинг-студия</title>
+<meta name="description" content="Виртуальный бокс детейлинг-студии «Слой»: выберите полировку, керамику, плёнку или химчистку прямо на машине и соберите расчёт.">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:title" content="Слой: детейлинг-студия">
+<meta property="og:description" content="Выберите защиту прямо на машине и соберите расчёт.">
+<meta property="og:image" content="preview.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='7' fill='%230b0c0e'/%3E%3Crect x='5' y='6' width='13' height='4' rx='2' fill='%23ff7a2f'/%3E%3Crect x='7' y='12' width='16' height='4' rx='2' fill='%23fff'/%3E%3Crect x='5' y='18' width='18' height='4' rx='2' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/box-dark.webp" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" as="image" href="img/box-dark-m.webp" media="(max-aspect-ratio: 1/1)">
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#box" aria-label="Слой — детейлинг-студия, в бокс">
+    <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="5" width="16" height="4" rx="2"/><rect x="6" y="12" width="19" height="4" rx="2"/><rect x="3" y="19" width="22" height="4" rx="2"/></svg>
+    <span>слой</span>
+  </a>
+  <div class="top-actions">
+    <button class="light-toggle" type="button" aria-pressed="false" title="Свет в боксе">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>
+      <span class="sr">Свет в боксе</span>
+    </button>
+    <button class="calc-btn" type="button" aria-label="Расчёт, позиций: 0" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7M8.5 12h2M13.5 12h2M8.5 16h2M13.5 16h2"/></svg>
+      <span class="calc-label">Расчёт</span>
+      <b class="calc-count" hidden>0</b>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- БОКС -->
+  <section class="scene scene-box is-active" id="box" aria-labelledby="box-title">
+    <div class="stage">
+      <picture class="shot shot-dark">
+        <source media="(max-aspect-ratio: 1/1)" srcset="img/box-dark-m.webp">
+        <img src="img/box-dark.webp" alt="Графитовый лифтбек в тёмном боксе под линиями света" fetchpriority="high" draggable="false">
+      </picture>
+      <picture class="shot shot-light">
+        <source media="(max-aspect-ratio: 1/1)" srcset="img/box-light-m.webp">
+        <img src="img/box-light.webp" alt="" draggable="false">
+      </picture>
+      <div class="hotspots"></div>
+    </div>
+    <div class="scrim" aria-hidden="true"></div>
+
+    <div class="box-intro">
+      <p class="eyebrow">Детейлинг-студия · бокс №2</p>
+      <h1 id="box-title">Выберите защиту<br>прямо на машине</h1>
+      <p class="lead">Нажмите на точку: расскажем, что сделаем, сколько займёт и сколько стоит.</p>
+    </div>
+
+    <aside class="card" aria-labelledby="card-title" hidden>
+      <button class="card-close" type="button" aria-label="Закрыть">×</button>
+      <p class="card-zone"></p>
+      <h2 id="card-title"></h2>
+      <ul class="card-list"></ul>
+    </aside>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section class="scene scene-services scroll" id="services" aria-labelledby="services-title">
+    <div class="wall">
+      <div class="scene-head">
+        <p class="eyebrow">Стенд с пакетами</p>
+        <h2 id="services-title">Готовые наборы дешевле, чем по отдельности</h2>
+      </div>
+      <div class="boards"></div>
+      <p class="aside-note">Нужно что-то одно? <a href="#box">Выберите на машине</a> — полировка, керамика, плёнка, химчистка, стёкла и диски.</p>
+    </div>
+  </section>
+
+  <!-- РАБОТЫ -->
+  <section class="scene scene-works" id="works" aria-labelledby="works-title">
+    <div class="scene-head works-head">
+      <div>
+        <p class="eyebrow">Работы · до и после</p>
+        <h2 id="works-title">Двигайте ползунок, листайте ленту</h2>
+      </div>
+      <div class="arrows">
+        <button type="button" class="arrow" data-dir="-1" aria-label="Предыдущая работа">←</button>
+        <button type="button" class="arrow" data-dir="1" aria-label="Следующая работа">→</button>
+      </div>
+    </div>
+    <div class="track" tabindex="0" aria-label="Лента работ"></div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="scene scene-contacts" id="contacts" aria-labelledby="contacts-title">
+    <img class="contacts-bg" src="img/contacts.webp" alt="" loading="lazy" draggable="false">
+    <div class="contacts-card">
+      <p class="eyebrow">Контакты</p>
+      <h2 id="contacts-title">Приезжайте в бокс</h2>
+      <dl class="facts">
+        <div><dt>Адрес</dt><dd>Москва, Заводской проезд, 14, ворота с оранжевой полосой</dd></div>
+        <div><dt>Часы</dt><dd>Ежедневно 9:00–21:00, машину можно оставить на ночь</dd></div>
+        <div><dt>Телефон</dt><dd>+7 900 000-00-00</dd></div>
+        <div><dt>Telegram</dt><dd>@sloy_box</dd></div>
+      </dl>
+      <p class="how">Осмотр и точная цена — 15 минут, бесплатно. Пока работаем, подождать можно в лаунже с кофе.</p>
+      <button type="button" class="btn open-calc">Записаться</button>
+      <p class="demo-note">Демо для портфолио: студия, адрес и контакты вымышлены.</p>
+    </div>
+  </section>
+</main>
+
+<nav class="pill" aria-label="Сцены">
+  <a href="#box" aria-current="page">Бокс</a>
+  <a href="#services">Услуги</a>
+  <a href="#works">Работы</a>
+  <a href="#contacts">Контакты</a>
+</nav>
+
+<!-- РАСЧЁТ -->
+<dialog class="drawer" aria-labelledby="drawer-title">
+  <div class="drawer-in">
+    <header class="drawer-head">
+      <h2 id="drawer-title">Расчёт</h2>
+      <button type="button" class="card-close drawer-close" aria-label="Закрыть">×</button>
+    </header>
+    <div class="drawer-body">
+      <div class="empty">
+        <p>Пока пусто. Выберите услуги на машине или готовый пакет на стенде.</p>
+        <div class="empty-links"><a class="chip" href="#box">В бокс</a><a class="chip" href="#services">К стенду</a></div>
+      </div>
+      <ul class="lines"></ul>
+      <p class="sum" hidden><span>Итого</span><b class="sum-value"></b></p>
+      <p class="sum-note" hidden>Точную цену назовём после осмотра: 15 минут, бесплатно.</p>
+
+      <form class="order" novalidate>
+        <h3>Заявка</h3>
+        <label>Имя<input name="name" autocomplete="given-name" required placeholder="Как к вам обращаться"></label>
+        <label>Телефон или Telegram<input name="contact" required placeholder="+7 900 000-00-00 или @username" autocomplete="tel"></label>
+        <label>Автомобиль<input name="car" placeholder="Например, Kia K5, 2021"></label>
+        <label>Удобная дата<input name="date" type="date"></label>
+        <p class="form-error" role="alert"></p>
+        <button class="btn" type="submit">Отправить заявку</button>
+      </form>
+
+      <div class="done" hidden tabindex="-1">
+        <div class="done-mark" aria-hidden="true">✓</div>
+        <h3>Заявка отправлена</h3>
+        <p class="done-text"></p>
+        <p class="demo-note">Это демо: заявка никуда не ушла.</p>
+        <button type="button" class="btn btn-ghost reset">Новый расчёт</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>
