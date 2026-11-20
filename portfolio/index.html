@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Илья · простые сайты для небольших компаний</title>
-<meta name="description" content="Три примера сайтов для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
+<meta name="description" content="Четыре примера сайтов для выдуманных заведений. Примерьте пример на своё название и откройте на телефоне.">
 <meta name="color-scheme" content="light dark">
 <link rel="preload" href="fonts/q5uCsoe9Lv5t7Meb31EcExd8hLxR.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -175,6 +175,8 @@ footer .wrap{display:grid;gap:28px;align-items:center}
 .js .rv.in{opacity:1;transform:none}
 .js .fan a{animation:rise 1s cubic-bezier(.16,1,.3,1) both}.js .fan a:nth-child(2){animation-delay:.08s}.js .fan a:nth-child(3){animation-delay:.16s}
 @keyframes rise{from{opacity:0;margin-top:60px}}
+@media(min-width:900px){.w.wide{grid-column:1/-1;grid-template-columns:1.35fr 1fr}.w.wide .b{align-content:center;padding:32px}}
+.w .shot video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}
   .js .fan a{animation:none}.fan a,.w .shot img{transition:none}.screen .skel{animation:none}}
 </style>
@@ -205,7 +207,7 @@ footer .wrap{display:grid;gap:28px;align-items:center}
 </section>
 
 <section id="work" class="wrap">
-  <h2 class="rv">Три примера для выдуманных заведений</h2>
+  <h2 class="rv">Четыре примера для выдуманных заведений</h2>
   <p class="sub rv">У каждого своя сетка, шрифты и характер. Названия придуманы, совпадения случайны.</p>
   <div class="works">
     <article class="w main rv">
@@ -225,6 +227,12 @@ footer .wrap{display:grid;gap:28px;align-items:center}
       <div class="b"><h3>Салон «Лиловый час»</h3>
         <p>Светлый минимализм: галерея работ, услуги карточками, отзывы.</p>
         <div class="acts"><a class="btn" href="../portfolio-salon/">Открыть сайт</a><button class="btn line" type="button" data-show="salon">В телефоне</button></div></div>
+    </article>
+    <article class="w wide rv">
+      <a class="shot" href="losk/"><video src="losk/preview.mp4" poster="losk/preview.jpg" muted loop playsinline preload="none" width="1280" height="720" aria-label="Видео: грязь на первом экране сайта стирается курсором"></video></a>
+      <div class="b"><h3>Клининг «Лоск»</h3>
+        <p>Интерактивный первый экран: грязь стирается мышью или пальцем, под ней чистая комната. Дальше калькулятор цены, слайдер «до и после» и заявка.</p>
+        <div class="acts"><a class="btn" href="losk/">Открыть сайт</a></div></div>
     </article>
   </div>
 </section>
@@ -378,5 +386,7 @@ footer .wrap{display:grid;gap:28px;align-items:center}
   if(q.has("name")||q.has("niche"))addEventListener("load",function(){$("#try").scrollIntoView()});
 })();
 </script>
+<script>(function(){var v=document.querySelector(".w.wide video");if(!v||!("IntersectionObserver"in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+new IntersectionObserver(function(e){e[0].isIntersecting?v.play().catch(function(){}):v.pause()},{threshold:.35}).observe(v)})()</script>
 </body>
 </html>

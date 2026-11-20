@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лоск: уборка квартир и домов</title>
+  <meta name="description" content="Лоск: поддерживающая и генеральная уборка, уборка после ремонта, мытьё окон и химчистка мебели. Цена онлайн за минуту.">
+  <meta name="theme-color" content="#f3f5f4">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="img/hero-dirty.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="nav" data-nav>
+    <a class="logo" href="#top" aria-label="Лоск, на главную">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M16 6c.9 5.3 4.7 9.1 10 10-5.3.9-9.1 4.7-10 10-.9-5.3-4.7-9.1-10-10 5.3-.9 9.1-4.7 10-10Z" fill="var(--logo-star)"/></svg>
+      <span>лоск</span>
+    </a>
+    <nav aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#calc">Цены</a>
+      <a href="#compare">До и после</a>
+      <a href="#reviews">Отзывы</a>
+    </nav>
+    <a class="nav__phone" href="tel:+74951284719">+7 495 128-47-19</a>
+    <a class="btn btn--small" href="#order">Заявка</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" data-hero aria-label="Первый экран">
+      <img class="hero__img" src="img/hero-clean.webp" alt="Чистая светлая гостиная с диваном" width="1920" height="1080" fetchpriority="high">
+      <canvas class="hero__dirt" data-dirt="img/hero-dirty.webp" aria-hidden="true"></canvas>
+      <div class="hero__brush" aria-hidden="true"></div>
+      <div class="hero__hint" role="status">
+        <span class="hero__hint-text">Проведите, чтобы почистить</span>
+        <span class="hero__meter"><span data-meter>0</span>%</span>
+        <button type="button" class="hero__skip" data-skip>Сразу чисто</button>
+      </div>
+      <div class="hero__content">
+        <h1>Дом, в&nbsp;который приятно вернуться</h1>
+        <p>Уборка квартир и&nbsp;домов в&nbsp;Москве. Свои средства, цена фиксируется до&nbsp;приезда, клинеры с&nbsp;проверкой.</p>
+        <a class="btn" href="#calc">Рассчитать уборку</a>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <h2 class="reveal">Услуги и&nbsp;цены</h2>
+      <div class="bento">
+        <article class="tile tile--photo reveal">
+          <img src="img/kitchen-clean.webp" alt="" loading="lazy" width="1600" height="1000">
+          <div>
+            <h3>Генеральная</h3>
+            <p>Кухня до&nbsp;фасадов, санузел до&nbsp;швов плитки, пыль на&nbsp;всех уровнях, техника изнутри.</p>
+            <strong>от 6 900 ₽</strong>
+          </div>
+        </article>
+        <article class="tile reveal">
+          <h3>Поддерживающая</h3>
+          <p>Раз в&nbsp;неделю или две: полы, пыль, кухня, санузел, бельё.</p>
+          <strong>от 3 200 ₽</strong>
+        </article>
+        <article class="tile tile--soft reveal">
+          <h3>После ремонта</h3>
+          <p>Строительная пыль, затирка, следы краски и&nbsp;скотча.</p>
+          <strong>от 9 800 ₽</strong>
+        </article>
+        <article class="tile reveal">
+          <h3>Мытьё окон</h3>
+          <p>Стёкла, рамы, откосы и&nbsp;подоконники с&nbsp;двух сторон.</p>
+          <strong>от 1 600 ₽</strong>
+        </article>
+        <article class="tile tile--accent reveal">
+          <h3>Химчистка мебели</h3>
+          <p>Диваны, кресла, матрасы и&nbsp;ковры у&nbsp;вас дома. Сохнет от&nbsp;4 до&nbsp;6 часов.</p>
+          <strong>от 2 400 ₽</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section calc" id="calc">
+      <form class="calc__form reveal" data-calc>
+        <h2>Сколько стоит уборка</h2>
+        <fieldset>
+          <legend>Тип уборки</legend>
+          <div class="seg">
+            <label><input type="radio" name="type" value="regular" checked><span><b>Поддерживающая</b><small>85 ₽/м²</small></span></label>
+            <label><input type="radio" name="type" value="deep"><span><b>Генеральная</b><small>170 ₽/м²</small></span></label>
+            <label><input type="radio" name="type" value="renovation"><span><b>После ремонта</b><small>240 ₽/м²</small></span></label>
+          </div>
+        </fieldset>
+        <div class="area">
+          <label for="area">Площадь, м²</label>
+          <input id="area" name="area" type="number" min="15" max="300" value="54" inputmode="numeric">
+          <input type="range" name="areaRange" min="15" max="300" value="54" aria-label="Площадь, ползунок">
+        </div>
+        <fieldset>
+          <legend>Добавить</legend>
+          <label class="check"><input type="checkbox" name="extra" value="windows"><span>Мытьё окон, до&nbsp;4 створок</span><em>+1 600 ₽</em></label>
+          <label class="check"><input type="checkbox" name="extra" value="sofa"><span>Химчистка дивана</span><em>+2 400 ₽</em></label>
+          <label class="check"><input type="checkbox" name="extra" value="fridge"><span>Холодильник и&nbsp;духовка внутри</span><em>+900 ₽</em></label>
+        </fieldset>
+      </form>
+      <aside class="calc__total reveal" aria-live="polite">
+        <span>Примерная стоимость</span>
+        <output data-total>4 590 ₽</output>
+        <p data-summary>Поддерживающая, 54 м²</p>
+        <a class="btn btn--light" href="#order" data-to-order>Оставить заявку</a>
+        <small>Точную цену менеджер подтвердит до&nbsp;приезда. Она не&nbsp;вырастет на&nbsp;месте.</small>
+      </aside>
+    </section>
+
+    <section class="section compare" id="compare">
+      <h2 class="reveal">До и&nbsp;после</h2>
+      <p class="lead reveal">Кухня после трёх месяцев без уборки. Генеральная, 4&nbsp;часа, два клинера.</p>
+      <div class="ba reveal" data-ba style="--pos: 50%">
+        <img src="img/kitchen-clean.webp" alt="Кухня после уборки" loading="lazy" width="1600" height="1000">
+        <img class="ba__before" src="img/kitchen-dirty.webp" alt="Та же кухня до уборки" loading="lazy" width="1600" height="1000">
+        <span class="ba__tag">До</span><span class="ba__tag ba__tag--after">После</span>
+        <span class="ba__handle" aria-hidden="true"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Сравнить кухню до и после уборки">
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <h2 class="reveal">Отзывы</h2>
+      <div class="reviews__track">
+        <figure class="review reveal"><blockquote>«Отмыли духовку, которую я считала потерянной. Приехали вовремя, работали тихо, всё поставили на свои места.»</blockquote><figcaption><b>Марина Ковалёва</b>Генеральная, Сокол</figcaption></figure>
+        <figure class="review reveal"><blockquote>«После ремонта в квартире стояла белая пыль. За день убрали полностью, даже на шкафах сверху чисто.»</blockquote><figcaption><b>Артём Гусейнов</b>После ремонта, Нагатинский затон</figcaption></figure>
+        <figure class="review reveal"><blockquote>«Заказываем раз в две недели уже полгода. Приходит одна и та же клинер, это очень удобно.»</blockquote><figcaption><b>Ольга и Денис Шестаковы</b>Поддерживающая, Строгино</figcaption></figure>
+        <figure class="review reveal"><blockquote>«Диван после кота выглядел печально. Пятна ушли, запаха нет, высох к вечеру.»</blockquote><figcaption><b>Ксения Баранова</b>Химчистка мебели, Бутово</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section order" id="order">
+      <div class="order__card reveal">
+        <form data-order novalidate>
+          <h2>Заявка на уборку</h2>
+          <p class="lead">Перезвоним за&nbsp;15 минут и&nbsp;согласуем время.</p>
+          <p class="order__picked" data-picked hidden></p>
+          <div class="field">
+            <label for="f-name">Имя</label>
+            <input id="f-name" name="name" autocomplete="given-name" required>
+            <span class="field__err">Как к&nbsp;вам обращаться?</span>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" pattern="[\d\s()+\-]{10,}" required>
+            <span class="field__err">Нужен номер, чтобы перезвонить</span>
+          </div>
+          <div class="field">
+            <label for="f-date">Желаемая дата</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+          <div class="field field--wide">
+            <label for="f-note">Комментарий</label>
+            <textarea id="f-note" name="note" rows="3" placeholder="Этаж, домофон, питомцы"></textarea>
+          </div>
+          <button class="btn" type="submit">Отправить заявку</button>
+          <small class="order__legal">Демо-сайт: данные никуда не&nbsp;отправляются.</small>
+        </form>
+        <div class="order__done" data-done hidden tabindex="-1">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="3"/><path d="m14 25 7 7 13-15" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2>Заявка отправлена</h2>
+          <p class="lead">Перезвоним в&nbsp;течение 15 минут. Это демо, так что звонка не&nbsp;будет.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#top" aria-label="Лоск, наверх">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M16 6c.9 5.3 4.7 9.1 10 10-5.3.9-9.1 4.7-10 10-.9-5.3-4.7-9.1-10-10 5.3-.9 9.1-4.7 10-10Z" fill="var(--logo-star)"/></svg>
+      <span>лоск</span>
+    </a>
+    <p>Ежедневно с&nbsp;8 до&nbsp;22, <a href="tel:+74951284719">+7 495 128-47-19</a></p>
+    <p class="footer__note">Демо-проект для портфолио. Компания и&nbsp;отзывы вымышлены.</p>
+  </footer>
+</body>
+</html>
