@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VOID: виртуальный магазин</title>
+<meta name="description" content="Виртуальный магазин лейбла VOID: вещи коллекции FORMWORK на бетонных постаментах в пустом тёмном зале.">
+<meta name="theme-color" content="#080808">
+<meta property="og:title" content="VOID: виртуальный магазин">
+<meta property="og:description" content="Коллекция FORMWORK в пустом зале под прожекторами.">
+<meta property="og:image" content="preview.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='%23080808'/%3E%3Crect x='7' y='7' width='14' height='14' fill='none' stroke='%23eeeeea' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="app.js"></script>
+</head>
+<body class="is-dark">
+
+<header class="top">
+  <a class="logo" href="#outerwear" aria-label="VOID, в зал">VOID</a>
+  <p class="collection">FORMWORK <span>Коллекция 01</span></p>
+  <button class="cart-btn" type="button" aria-haspopup="dialog" aria-label="Корзина, вещей: 0">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <span class="cart-label">Корзина</span>
+    <b class="cart-count" hidden>0</b>
+  </button>
+</header>
+
+<main class="hall" aria-live="polite">
+  <div class="floor" aria-hidden="true"></div>
+  <!-- сцены рисует app.js из data.js -->
+</main>
+
+<p class="hint" aria-hidden="true"><span class="hint-desk">Колесо или стрелки листают вешалки</span><span class="hint-touch">Листайте вещи свайпом</span></p>
+
+<nav class="pill" aria-label="Категории"></nav>
+
+<!-- КАРТОЧКА ВЕЩИ -->
+<dialog class="sheet product" aria-labelledby="p-title">
+  <button type="button" class="x" aria-label="Закрыть">×</button>
+  <div class="p-gallery">
+    <div class="p-photos" tabindex="0" aria-label="Фото вещи"></div>
+    <div class="p-dots" aria-hidden="true"></div>
+  </div>
+  <div class="p-body">
+    <h2 id="p-title"></h2>
+    <p class="p-price"></p>
+    <fieldset class="p-colours"><legend>Цвет: <b class="p-colour-name"></b></legend><div class="swatches"></div></fieldset>
+    <fieldset class="p-sizes"><legend>Размер</legend><div class="sizes"></div><p class="p-error" role="alert"></p></fieldset>
+    <div class="p-buy">
+      <div class="qty" aria-label="Количество">
+        <button type="button" class="qty-minus" aria-label="Меньше">−</button>
+        <output class="qty-value">1</output>
+        <button type="button" class="qty-plus" aria-label="Больше">+</button>
+      </div>
+      <button type="button" class="add"><span>В корзину</span></button>
+    </div>
+    <dl class="p-facts"></dl>
+  </div>
+</dialog>
+
+<!-- КОРЗИНА -->
+<dialog class="sheet cart" aria-labelledby="c-title">
+  <header class="c-head"><h2 id="c-title">Корзина</h2><button type="button" class="x" aria-label="Закрыть">×</button></header>
+  <p class="c-empty">Здесь пусто. Откройте вещь на постаменте и выберите размер.</p>
+  <ul class="c-lines"></ul>
+  <footer class="c-foot" hidden>
+    <p class="c-ship"></p>
+    <p class="c-sum"><span>Сумма</span><b></b></p>
+    <button type="button" class="checkout">Оформить заказ</button>
+    <p class="c-note" role="status" hidden>Оформление в демо не подключено: магазин показывает витрину и корзину.</p>
+  </footer>
+</dialog>
+
+<!-- О БРЕНДЕ -->
+<dialog class="sheet about" aria-labelledby="a-title">
+  <button type="button" class="x" aria-label="Закрыть">×</button>
+  <img class="a-photo" src="img/ph/V-01.webp" alt="Модель в пальто Cast Coat в пустом бетонном зале" width="1280" height="720" loading="lazy">
+  <div class="a-body">
+    <h2 id="a-title">VOID</h2>
+    <p class="a-lead">Построено вокруг того, чего нет.</p>
+    <p>VOID шьёт одежду с чёткой конструкцией малыми тиражами. Одна линия, одна размерная сетка, коллекции по номерам. Ничего не делается под сезон и ничего не уходит в скидки.</p>
+    <p>Коллекция 01 называется FORMWORK: так называют опалубку, форму, которая задаёт бетону очертания и снимается, когда он схватился. Поэтому вещи стоят здесь на бетоне и без людей: каждая сама держит объём тела.</p>
+    <p class="a-how">Как пользоваться: категории внизу, вещи листаются свайпом или колесом, клик по вещи открывает карточку.</p>
+    <p class="demo-note">Демо для портфолио: бренд, цены и остатки вымышлены.</p>
+  </div>
+</dialog>
+
+</body>
+</html>
