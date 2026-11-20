@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0e10">
+<title>Малярный центр — покраска и кузовной ремонт · Ярославль</title>
+<link rel="preload" as="image" href="img/car-m.jpg" media="(max-width: 760px)">
+<link rel="preload" as="image" href="img/car.jpg" media="(min-width: 761px)">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --bg:#0d0e10; --panel:#15171a; --panel-2:#1c1f23; --line:rgba(236,233,228,.1); --line-2:rgba(236,233,228,.18);
+  --ink:#ece9e4; --muted:#9d9891; --dim:#6f6b66;
+  --accent:#f0b429; --accent-ink:#141108; --accent-soft:rgba(240,180,41,.12);
+  --head:"Unbounded",system-ui,sans-serif; --body:"PT Sans",system-ui,sans-serif;
+  --r:12px; --pad:16px; --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--body);-webkit-font-smoothing:antialiased;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.01em;margin:0;line-height:1.08}
+h2{font-size:clamp(26px,6.4vw,44px)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font:500 12px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:12px;margin-bottom:28px}
+.sec-head p{margin:0;max-width:58ch;color:var(--muted)}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;
+  font:700 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:transform .15s ease,background-color .2s ease,border-color .2s ease}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:#ffc53d}
+.btn-ghost{background:rgba(13,14,16,.55);color:var(--ink);border-color:var(--line-2);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* плашка демо */
+.demo{background:#000;color:#b9b4ad;font-size:13px;line-height:1.4;padding:8px var(--pad);text-align:center}
+.demo b{color:var(--ink);font-weight:700}
+.demo a{color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:20;background:rgba(13,14,16,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 14px/1.05 var(--head);letter-spacing:.04em;text-transform:uppercase}
+.logo i{width:30px;height:30px;border-radius:8px;background:repeating-linear-gradient(-45deg,var(--accent) 0 6px,#1a1708 6px 12px);flex:none}
+.top nav{display:none;gap:26px;font-size:15px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.top .btn{min-height:42px;padding:0 18px;font-size:15px}
+.top .call,.top .btn-primary{display:none}
+
+/* первый экран */
+/* телефон: фото целиком сверху, текст наезжает на его затемнённый низ; от 900 px — фото на весь первый экран */
+.hero{position:relative;overflow:hidden;border-top:0;padding:0}
+.hero picture{position:relative;display:block}
+.hero picture img{width:100%;height:auto;aspect-ratio:1440/1000;object-fit:cover}
+.hero picture::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,16,0) 45%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;margin-top:-56px;padding-bottom:36px}
+.hero h1{font-size:clamp(40px,11.5vw,104px);text-transform:uppercase;letter-spacing:-.02em;margin:14px 0 16px}
+.hero p.lead{margin:0 0 24px;max-width:46ch;font-size:18px;color:#d7d3cd}
+.hero .actions{display:grid;gap:10px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:15px;color:#cfcac3}
+.facts span{display:inline-flex;align-items:center;gap:7px}
+.facts svg{width:16px;height:16px;color:var(--accent)}
+.photo-note{position:absolute;right:var(--pad);top:12px;z-index:2;font-size:12px;color:rgba(236,233,228,.7);
+  background:rgba(13,14,16,.55);padding:4px 10px;border-radius:999px}
+
+/* услуги */
+.services{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.svc{background:var(--panel);padding:22px 20px;display:grid;gap:10px;align-content:start}
+.svc h3{font-size:19px;line-height:1.2}
+.svc p{margin:0;color:var(--muted);font-size:16px}
+.price{display:flex;align-items:baseline;gap:6px;margin-top:4px;font-family:var(--head);font-weight:500}
+.price small{font:400 14px var(--body);color:var(--muted)}
+.price b{font-size:24px;font-weight:800;color:var(--accent)}
+.price-note{display:flex;gap:10px;align-items:flex-start;margin:16px 0 0;font-size:15px;color:var(--muted)}
+.price-note svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--accent)}
+.also{margin-top:28px}
+.also h3{font:500 13px/1 var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line-2);border-radius:999px;padding:7px 14px;font-size:15px}
+
+/* до / после */
+.ba{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1440/1000;background:#222;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;margin-left:-1px;background:var(--accent);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--accent);
+  color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.45)}
+.ba .knob svg{width:22px;height:22px}
+.ba .tag{position:absolute;bottom:12px;font:500 11px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(13,14,16,.75);padding:7px 10px;border-radius:6px;pointer-events:none}
+.ba .tag.l{left:12px}.ba .tag.r{right:12px;color:var(--accent)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba-note{margin:14px 0 0;font-size:15px;color:var(--muted)}
+
+/* отзывы */
+.rating{display:grid;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px 22px}
+.score{display:flex;align-items:center;gap:18px}
+.score b{font:800 64px/1 var(--head);letter-spacing:-.03em}
+.stars{display:flex;gap:3px;color:var(--accent)}
+.stars svg{width:22px;height:22px}
+.score .muted{font-size:15px;margin-top:6px}
+.rating p{margin:0;color:var(--muted);max-width:52ch}
+
+/* адрес */
+.place{display:grid;gap:20px}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--panel-2)}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05)}
+.info{display:grid;gap:22px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px}
+.info h3{font:500 12px/1 var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.info .addr{font:800 20px/1.25 var(--head)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-size:16px}
+.hours dt{color:var(--muted)}
+.hours dd{margin:0}
+.hours .off{color:var(--dim)}
+.info .row{display:flex;flex-wrap:wrap;gap:10px}
+.tel{font:800 22px/1 var(--head);text-decoration:none}
+.pay{margin:0;color:var(--muted);font-size:15px}
+
+/* запись */
+.book{display:grid;gap:28px}
+form{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px}
+label{display:grid;gap:7px;align-content:start;font-size:14px;color:var(--muted)}
+a[href^="tel:"]{white-space:nowrap}
+input,select,textarea{width:100%;min-height:52px;padding:13px 14px;border-radius:10px;border:1px solid var(--line-2);background:var(--bg);
+  color:var(--ink);font:17px/1.3 var(--body);-webkit-appearance:none;appearance:none}
+textarea{min-height:96px;resize:vertical}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 23px,calc(100% - 16px) 23px;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+input[aria-invalid="true"]{border-color:#e5484d}
+.err{color:#ff7b7f;font-size:13px;min-height:0}
+.two{display:grid;gap:14px}
+form .btn{width:100%;margin-top:4px}
+.legal{margin:0;font-size:13px;color:var(--dim)}
+.done{display:none;text-align:center;padding:36px 18px;gap:12px;justify-items:center}
+.done .ok{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.done .ok svg{width:28px;height:28px}
+.done h3{font-size:22px}
+.done p{margin:0;color:var(--muted)}
+form.sent>*:not(.done){display:none}
+form.sent .done{display:grid}
+.steps{display:grid;gap:16px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s,decimal-leading-zero);font:800 14px/40px var(--head);text-align:center;border-radius:10px;
+  background:var(--accent-soft);color:var(--accent);height:40px}
+.steps b{display:block;font-size:17px}
+.steps span{color:var(--muted);font-size:15px}
+
+/* подвал */
+footer{border-top:1px solid var(--line);padding:36px 0 28px;color:var(--muted);font-size:15px}
+footer .wrap{display:grid;gap:10px}
+footer b{color:var(--ink);font:800 15px var(--head);text-transform:uppercase;letter-spacing:.04em}
+footer small{color:var(--dim);font-size:13px}
+
+/* нижняя панель на телефоне */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;
+  padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:rgba(13,14,16,.94);border-top:1px solid var(--line);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.dock .btn{min-height:50px;padding:0 12px}
+
+@media (min-width:600px){
+  .hero .actions{display:flex;flex-wrap:wrap}
+  .services{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr 1fr}
+}
+@media (min-width:900px){
+  :root{--pad:32px}
+  body{padding-bottom:0}
+  .dock{display:none}
+  .top nav{display:flex}
+  .top .call,.top .btn-primary{display:inline-flex}
+  .hero{min-height:min(88vh,780px);display:flex;align-items:flex-end}
+  .hero picture{position:absolute;inset:0}
+  .hero picture img{height:100%;aspect-ratio:auto;object-position:40% 45%}
+  .hero picture::after{background:linear-gradient(90deg,rgba(13,14,16,.92) 0%,rgba(13,14,16,.55) 45%,rgba(13,14,16,.1) 75%),
+    linear-gradient(180deg,rgba(13,14,16,0) 60%,var(--bg) 100%)}
+  .hero .wrap{margin-top:0;padding-top:140px}
+  section{padding:104px 0}
+  .sec-head{grid-template-columns:1fr 1fr;align-items:end;gap:40px;margin-bottom:44px}
+  .services{grid-template-columns:repeat(4,1fr)}
+  .svc{padding:28px 24px;min-height:260px}
+  .rating{grid-template-columns:auto 1fr auto;align-items:center;gap:40px;padding:36px 40px}
+  .place{grid-template-columns:1.25fr 1fr;align-items:stretch}
+  .map{aspect-ratio:auto;min-height:440px}
+  .book{grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+  form{padding:32px}
+  .hero .wrap{padding-bottom:64px}
+  .hero p.lead{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="demo">Пример дизайна для <b>«Малярный центр»</b>. Не официальный сайт. Илья, @ilya_webdev · <a href="https://t.me/ilya_webdev" target="_blank" rel="noopener">Хочу такой сайт</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><i aria-hidden="true"></i><span>Малярный<br>центр</span></a>
+    <nav aria-label="Разделы">
+      <a href="#services">Услуги и цены</a><a href="#ba">До и после</a><a href="#reviews">Отзывы</a><a href="#place">Адрес</a>
+    </nav>
+    <div class="row" style="display:flex;gap:10px">
+      <a class="btn btn-ghost call" href="tel:+79051315018">+7 905 131-50-18</a>
+      <a class="btn btn-primary" href="#book">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <picture>
+      <source media="(min-width: 761px)" srcset="img/car.jpg">
+      <img src="img/car-m.jpg" alt="Автомобиль после покраски и полировки в боксе Малярного центра" width="820" height="569" fetchpriority="high">
+    </picture>
+    <span class="photo-note">фото из карточки 2ГИС</span>
+    <div class="wrap">
+      <div class="eyebrow">Ярославль · Дзержинский район</div>
+      <h1>Малярный<br>центр</h1>
+      <p class="lead">Покраска, локальный ремонт, полировка и кузовной ремонт. Восстанавливаем геометрию, убираем вмятины, варим.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#book">Записаться на осмотр</a>
+        <a class="btn btn-ghost" href="#services">Услуги и цены</a>
+      </div>
+      <div class="facts">
+        <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>5,0 · 12 отзывов в 2ГИС</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Пн–Пт 10:00–18:00</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>ул. Елены Колесовой, 23</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Услуги</div><h2 style="margin-top:12px">Что делаем и сколько стоит</h2></div>
+        <p>Стоимость зависит от машины, размера повреждения и краски. Сначала смотрим автомобиль — потом называем точную цену.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <h3>Покраска элемента</h3>
+          <p>Крыло, дверь, бампер, капот. Подготовка, грунт, краска и лак в цвет кузова.</p>
+          <div class="price"><small>от</small><b>8&nbsp;000&nbsp;₽</b></div>
+        </article>
+        <article class="svc">
+          <h3>Локальный ремонт</h3>
+          <p>Сколы, царапины и небольшие повреждения без покраски всей детали.</p>
+          <div class="price"><small>от</small><b>4&nbsp;000&nbsp;₽</b></div>
+        </article>
+        <article class="svc">
+          <h3>Полировка</h3>
+          <p>Убираем паутинку и мелкие царапины, возвращаем блеск лаку.</p>
+          <div class="price"><small>от</small><b>7&nbsp;000&nbsp;₽</b></div>
+        </article>
+        <article class="svc">
+          <h3>Кузовной ремонт</h3>
+          <p>Рихтовка, ремонт вмятин, сварка, восстановление геометрии кузова.</p>
+          <div class="price"><small>от</small><b>5&nbsp;000&nbsp;₽</b></div>
+        </article>
+      </div>
+      <p class="price-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>Цены примерные — для демонстрации. На сайте будут ваши.</p>
+      <div class="also">
+        <h3>Ещё по карточке 2ГИС</h3>
+        <div class="chips">
+          <span>Восстановление геометрии</span><span>Ремонт вмятин</span><span>Сварка</span><span>Кузовной ремонт грузовых</span>
+          <span>Антикоррозийная обработка</span><span>Детейлинг</span><span>Мойка</span><span>Ремонт мототехники</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ba">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">До и после</div><h2 style="margin-top:12px">Потяните ползунок</h2></div>
+        <p>Здесь будут ваши работы: пары фото до и после — покраска, полировка, ремонт вмятин.</p>
+      </div>
+      <div class="ba" style="--pos:50%">
+        <img src="img/before-m.jpg" srcset="img/before-m.jpg 820w, img/before.jpg 1440w" sizes="(min-width: 1180px) 1116px, 100vw" alt="До: тусклый лак с царапинами" loading="lazy" width="820" height="569">
+        <img class="after" src="img/car-m.jpg" srcset="img/car-m.jpg 820w, img/car.jpg 1440w" sizes="(min-width: 1180px) 1116px, 100vw" alt="После: блестящий лак без царапин" loading="lazy" width="820" height="569">
+        <span class="tag l">До</span><span class="tag r">После</span>
+        <div class="handle"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+        <input type="range" min="0" max="100" value="50" aria-label="Сравнить до и после">
+      </div>
+      <p class="ba-note">Для примера «до» смоделировано на фото из вашей карточки 2ГИС.</p>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Отзывы</div><h2 style="margin-top:12px">Оценка клиентов</h2></div>
+      </div>
+      <div class="rating">
+        <div class="score">
+          <b>5,0</b>
+          <div>
+            <div class="stars" aria-label="5 из 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+            </div>
+            <div class="muted">12 отзывов · рейтинг подтверждён 2ГИС</div>
+          </div>
+        </div>
+        <p>На сайте здесь будут настоящие отзывы ваших клиентов из 2ГИС — с именами и датами, без выдуманных текстов.</p>
+        <a class="btn btn-ghost" href="https://2gis.ru/yaroslavl/firm/70000001117262435/tab/reviews" target="_blank" rel="noopener">Читать отзывы в 2ГИС</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="place">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Адрес</div><h2 style="margin-top:12px">Как нас найти</h2></div>
+      </div>
+      <div class="place">
+        <div class="map"><iframe loading="lazy" title="Карта: Ярославль, улица Елены Колесовой, 23"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=39.783554,57.671195,39.797554,57.678195&amp;layer=mapnik&amp;marker=57.674695,39.790554"></iframe></div>
+        <div class="info">
+          <div>
+            <h3>Адрес</h3>
+            <div class="addr">Ярославль, улица Елены&nbsp;Колесовой,&nbsp;23</div>
+            <p class="pay" style="margin-top:8px">Остановка «Урицкого» — 470 м</p>
+          </div>
+          <div>
+            <h3>Часы работы</h3>
+            <dl class="hours">
+              <dt>Пн–Пт</dt><dd>10:00–18:00</dd>
+              <dt>Сб–Вс</dt><dd class="off">выходной</dd>
+            </dl>
+          </div>
+          <div>
+            <h3>Телефон</h3>
+            <a class="tel" href="tel:+79051315018">+7 905 131-50-18</a>
+          </div>
+          <p class="pay">Оплата картой, наличными, переводом, по QR-коду.</p>
+          <div class="row">
+            <a class="btn btn-primary" href="https://2gis.ru/yaroslavl/firm/70000001117262435" target="_blank" rel="noopener">Построить маршрут</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap book">
+      <div>
+        <div class="eyebrow">Запись</div>
+        <h2 style="margin:12px 0 18px">Записаться на&nbsp;осмотр</h2>
+        <p class="muted" style="margin:0 0 28px;max-width:44ch">Оставьте телефон — перезвоним в рабочее время, договоримся о дне и назовём ориентир по цене.</p>
+        <ol class="steps">
+          <li><div><b>Заявка</b><span>Имя, телефон и что случилось с машиной</span></div></li>
+          <li><div><b>Осмотр</b><span>Смотрим повреждения и называем стоимость</span></div></li>
+          <li><div><b>Работа</b><span>Договариваемся о сроках и делаем</span></div></li>
+        </ol>
+      </div>
+      <form id="form" novalidate>
+        <div class="two">
+          <label>Имя<input name="name" autocomplete="name" required maxlength="60" placeholder="Как к вам обращаться"></label>
+          <label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="+7 900 000-00-00"><span class="err" id="phone-err" aria-live="polite"></span></label>
+        </div>
+        <div class="two">
+          <label>Машина<input name="car" maxlength="60" placeholder="Марка и модель"></label>
+          <label>Услуга
+            <select name="service">
+              <option>Покраска элемента</option><option>Локальный ремонт</option><option>Полировка</option>
+              <option>Кузовной ремонт</option><option>Пока не знаю — нужен осмотр</option>
+            </select>
+          </label>
+        </div>
+        <label><span>Что случилось <span style="color:var(--dim)">(необязательно)</span></span><textarea name="note" maxlength="500" placeholder="Например: царапина на заднем крыле"></textarea></label>
+        <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        <p class="legal">Это демо: заявка никуда не отправляется.</p>
+        <div class="done" role="status">
+          <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3>Заявка отправлена</h3>
+          <p>Перезвоним в рабочее время: пн–пт, 10:00–18:00.</p>
+          <p style="font-size:13px;color:var(--dim)">Демо: на настоящем сайте заявка придёт вам в Telegram или на почту.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Малярный центр</b>
+    <span>Ярославль, улица Елены Колесовой, 23 · <a href="tel:+79051315018">+7 905 131-50-18</a> · пн–пт 10:00–18:00</span>
+    <small>Пример дизайна, не официальный сайт. Цены примерные. Илья, <a href="https://t.me/ilya_webdev" target="_blank" rel="noopener">@ilya_webdev</a></small>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-ghost" href="tel:+79051315018"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Позвонить</a>
+  <a class="btn btn-primary" href="#book">Записаться</a>
+</div>
+
+<script>
+// до / после: ползунок двигает границу кадров
+const ba = document.querySelector(".ba"), range = ba.querySelector("input");
+range.addEventListener("input", () => ba.style.setProperty("--pos", range.value + "%"));
+
+// запись: проверка телефона, в демо — только экран «заявка отправлена»
+const form = document.getElementById("form"), phone = form.phone, err = document.getElementById("phone-err");
+const okPhone = v => /^\d{10,11}$/.test(v.replace(/\D/g, ""));
+phone.addEventListener("input", () => { if (okPhone(phone.value)) { phone.removeAttribute("aria-invalid"); err.textContent = ""; } });
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (!form.name.value.trim()) { form.name.focus(); form.name.setAttribute("aria-invalid", "true"); return; }
+  form.name.removeAttribute("aria-invalid");
+  if (!okPhone(phone.value)) { phone.setAttribute("aria-invalid", "true"); err.textContent = "Номер из 10–11 цифр"; phone.focus(); return; }
+  form.classList.add("sent");
+  form.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+});
+</script>
+</body>
+</html>
